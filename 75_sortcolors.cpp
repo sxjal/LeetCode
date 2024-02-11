@@ -17,13 +17,31 @@ using namespace std;
 
 int main()
 {
-    vector<int> a{0,1,1,0,1,0,1,0,0};
+    vector<int> nums{0,1,2,1,1,0,2};
 
+    int l = 0, m = 0, h = nums.size()-1;
 
-   
+        while(m<=h){
+            if(nums[m] == 0){
+                int temp = nums[m];
+                nums[m] = nums[l];
+                nums[l] = temp;
+                m++;
+                l++;
+            }
+            else if(nums[m] == 1){
+                m++;
+            }
+            else {
+                int temp = nums[m];
+                nums[m] = nums[h];
+                nums[h--] = temp;
+            }   
+           
+        }
 
-    for( auto value:a){
-        cout<<value<<" ";
+    for(auto v:nums){
+        cout<<v<<" ";
     }
     
     return 0;
