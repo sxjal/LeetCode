@@ -17,32 +17,22 @@ using namespace std;
 
 int main()
 {
-    vector<int> nums{0,1,2,1,1,0,2};
+    vector<int> nums{1,3,4,2,2};
 
-    int l = 0, m = 0, h = nums.size()-1;
+    
+    // for(int i = 0; i < nums.size(); i++){
+    //     int index = abs(nums[i]);
+    //     if(nums[index] < 0){
+    //         cout<<index;
+    //         break;
+    //     }
+    //     nums[index] *= -1;
+    // }
 
-        while(m<=h){
-            if(nums[m] == 0){
-                int temp = nums[m];
-                nums[m] = nums[l];
-                nums[l] = temp;
-                m++;
-                l++;
-            }
-            else if(nums[m] == 1){
-                m++;
-            }
-            else {
-                int temp = nums[m];
-                nums[m] = nums[h];
-                nums[h--] = temp;
-            }   
-           
-        }
-
-    for(auto v:nums){
-        cout<<v<<" ";
-    }
+    while(nums[0] != nums[nums[0]]){
+        swap(nums[0], nums[nums[0]]);
+    }     
+    cout<< nums[0];
     
     return 0;
 }
