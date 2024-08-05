@@ -47,14 +47,3 @@ int main()
 
 
 
-
-int main()
-{
-   vector<string> s = {"12:12","00:13"};
-
-
-    cout<<findMinDifference(s);
-    return 0;
-}
-
-
