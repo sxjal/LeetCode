@@ -12,36 +12,40 @@ using namespace std;
 
 using namespace std;
 
-int func(string s, int i, int j){
-    int count = 0;
+bool mycomp(string a, string b){
+    string t1 = a+b;
+    string t2 = b+a;
 
-
-    //jabtak match karega tab kar count increment and i-- and j++
-    while(i>= 0 && j < s.length() && s[i] == s[j]){
-        count++;
-        i--;
-        j++;
-    }
-    
-    return count;
+    return t1>t2;
 }
 
-int countSubstrings(string s) {
-    int count = 0;
+string largestNumber(vector<int>& nums) {
+    vector<string> str;
 
-    for(int i = 0; i < s.size(); i++){
-        count += func(s,i,i); //odd ans
-        count += func(s,i,i+1); //even ans
+    for(auto x:nums){
+        str.push_back(to_string(x));
     }
 
-    return count;
+    sort(str.begin(),str.end(),mycomp);
+    string ans = "";
+
+    for(auto x : str){
+        ans += x;
+    }
+
+    if(ans[0] == '0'){
+        return "0";
+    }
+
+    return ans; 
 }
+
 int main()
 {
-   string s = "noon";
+    vector<int> nums = {1,2,3,4,5};
 
+    cout<<largestNumber(nums);
 
-    cout<<countSubstrings(s);
     return 0;
 }
 
